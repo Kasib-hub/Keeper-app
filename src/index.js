@@ -16,3 +16,5 @@ ReactDOM.render(<App />, document.getElementById('root'));
 //https://l1pp6.csb.app/
 
 //HINT: You will need to study the classes in teh styles.css file to appy styling.
+
+//7 Render all the notes as a seaparate  componenet
