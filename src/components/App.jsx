@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
@@ -16,16 +16,28 @@ import CreateArea from "./CreateArea";
 
 function App() {
 
-    function addNote(note) {
-        console.log(note);
+    // store notes in array @ useState[], How would I persist the data with mongoose?
+    const [notes, setNotes] = useState([]);
+
+    // access all prev notes and add new one to the end
+    function addNote(newNote) {
+        setNotes(prevNotes => {
+           return [...prevNotes, newNote];
+        });
     }
 
     // onAdd created to receive the addNote function
+    // use the notes array const and map a new Note component for each item with made props
     return (
         <div>
             <Header />
-            <CreateArea onAdd={addNote}/>
-            <Note key={1} title='Note title' content='Note content' />
+            <CreateArea onAdd={addNote} />
+            {notes.map(noteItem => {
+                return <Note 
+                title={noteItem.title}
+                content={noteItem.content}
+                />;
+            })}
             <Footer />
         </div>
     );

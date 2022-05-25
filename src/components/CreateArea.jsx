@@ -25,6 +25,7 @@ function CreateArea(props) {
     function submitNote(event) {
         // prevent refresh
         event.preventDefault();
+        
         // pass current created note
         props.onAdd(note);
     }
