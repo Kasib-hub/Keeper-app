@@ -36,17 +36,19 @@ function App() {
 
     // onAdd created to receive the addNote function
     // use the notes array const and map a new Note component for each item with made props
+    // React.Children.toArray allows key generation without explicitly assigning them. add and id to give method to index notes
     return (
         <div>
             <Header />
             <CreateArea onAdd={addNote} />
-            {notes.map(noteItem => {
+            {React.Children.toArray(notes.map((noteItem, i) => {
                 return <Note 
+                id={i}
                 title={noteItem.title}
                 content={noteItem.content}
                 onDelete={deleteNote}
                 />;
-            })}
+            }))}
             <Footer />
         </div>
     );

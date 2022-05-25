@@ -23,11 +23,18 @@ function CreateArea(props) {
 
     // function to pass note back to App - needed as prop as well
     function submitNote(event) {
-        // prevent refresh
-        event.preventDefault();
-        
         // pass current created note
         props.onAdd(note);
+
+        setNote({
+            title: '',
+            content: ''
+        });
+
+        // prevent refresh
+        event.preventDefault();
+
+
     }
 
     return (

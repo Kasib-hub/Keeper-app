@@ -6,7 +6,7 @@ function Note(props) {
 
     function handleClick(event) {
         // triggers the function in App
-        props.onDelete();
+        props.onDelete(props.id);
     }
 
     return (
