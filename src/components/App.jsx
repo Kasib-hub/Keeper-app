@@ -26,6 +26,14 @@ function App() {
         });
     }
 
+    function deleteNote(id) {
+        setNotes(prevNotes => {
+            return prevNotes.filter((noteItem, i) => {
+                return i !== id;
+            });
+        });
+    }
+
     // onAdd created to receive the addNote function
     // use the notes array const and map a new Note component for each item with made props
     return (
@@ -36,6 +44,7 @@ function App() {
                 return <Note 
                 title={noteItem.title}
                 content={noteItem.content}
+                onDelete={deleteNote}
                 />;
             })}
             <Footer />
